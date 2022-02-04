@@ -8,10 +8,12 @@ app = Flask(__name__)
 def index():
    print('Request for index page received')
    if request.method == 'POST':
-      if request.form['mishap'] == 'teleporter':
+      if request.form.get('teleporter', None):
+         print('teleporter')
          mishap_text = html_mishap(1,1)
          return render_template('mishap.html', mishap_text=mishap_text)
-      if request.form['mishap'] == 'wrench':
+      if request.form.get('wrench', None):
+         print('wrench')
          mishap_text = html_mishap(2,1)
          return render_template('mishap.html', mishap_text=mishap_text)
    elif request.method == 'GET':

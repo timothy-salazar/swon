@@ -337,7 +337,10 @@ def html_mishap(rank=RANK, size=SIZE):
     if x[:8] == 'You fool':
         # Oh no...
         return [{'title':'Scientific Abomination',
-                'lines':x}]
+                'lines':[x]}]
+    if x[:25] == 'Nothing super bad happens':
+        return  [{'title':'meh.',
+                'lines':[x]}]
     output = []
     while True:
         title, x = cut_title(x)
