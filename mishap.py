@@ -1,6 +1,7 @@
 import random
 from random import randrange
 from abomination import Abomination
+import re
 
 RANK = 1
 SIZE = 0
@@ -314,3 +315,36 @@ def mishap(rank=RANK, size=SIZE, spacing='  '):
     8 Roll 1d10 + 10 on the Environmental Mishap table
     Nothing super bad happens. As the device triggers you have a sense of narrowly averted catastrophe.'''
 
+def cut_title(x):
+    m = re.match('^[A-Za-z -]+?:',x)
+    if m:
+        index = m.span()[1]
+        return x[:index], x[index:]
+
+def cut_description(x):
+    m = re.search('.*\n[A-Z]', x)
+    if m:
+        index = m.span()[0] + 1
+        return x[:index], x[index:]
+    else:
+        return x, ''
+
+def format_lines(x):
+    return [f'{i}' for i in x.split('\n') if i]
+
+def html_mishap(rank=RANK, size=SIZE):
+    x = mishap(rank, size)
+    if x[:8] == 'You fool':
+        # Oh no...
+        return [{'title':'Scientific Abomination',
+                'lines':x}]
+    output = []
+    while True:
+        title, x = cut_title(x)
+        d, x = cut_description(x)
+        output.append(
+            {'title':title,
+            'lines':format_lines(d)})
+        if not x:
+            break
+    return output

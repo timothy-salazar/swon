@@ -1,8 +1,6 @@
 import random
 from random import randrange
 
-
-
 class Abomination:
     def __init__(self, rank, size):
         self.lines = []
