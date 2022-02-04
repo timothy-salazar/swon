@@ -11,6 +11,9 @@ def index():
       if request.form['mishap'] == 'teleporter':
          mishap_text = html_mishap(1,1)
          return render_template('mishap.html', mishap_text=mishap_text)
+      if request.form['mishap'] == 'wrench':
+         mishap_text = html_mishap(2,1)
+         return render_template('mishap.html', mishap_text=mishap_text)
    elif request.method == 'GET':
       return render_template('index2.html')
 
