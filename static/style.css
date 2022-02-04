@@ -1,0 +1,14 @@
+body {
+    background-image: url("notebook.jpg");
+    background-repeat: no-repeat;
+    width:fit-content;
+}
+div{
+    margin-left:70px;
+}
+img{
+    float:left;
+}
+h1 {
+    margin-left:70px;
+}

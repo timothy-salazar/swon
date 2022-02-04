@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Marvels of Science!!!{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="teleporer-cube" style="margin-bottom:10px;" >
+        <img src="/static/teleporter_cube.png" alt="Teleporter Cube" style="float:left;width:300px;">
+        <p>things</p>
+        <p>stuff</p>
+        <form method="post" action="/">
+            <input type="submit" name="mishap" value="teleporter">
+        </form>
+    </div>
+    <div class="wobbly-wrench" style="margin-bottom:10px;clear:left;">
+        <img src="/static/wobbly_wrench.png" alt="Wobbly Wrench" style="float:left;width:300px;">
+        <p>junk</p>
+        <p>idk</p>
+    </div>
+{% endblock %}
