@@ -14,7 +14,7 @@ def index():
          return render_template('mishap.html', mishap_text=mishap_text)
       if request.form.get('wrench', None):
          print('wrench')
-         mishap_text = html_mishap(2,1)
+         mishap_text = html_mishap(3,1)
          return render_template('mishap.html', mishap_text=mishap_text)
    elif request.method == 'GET':
       return render_template('index2.html')
